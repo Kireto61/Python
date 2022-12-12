@@ -1,0 +1,73 @@
+class Book:
+    def __init__(self, book_name, book_code, book_price, book_year, book_author):
+        self.book_name=book_name
+        self.book_code=book_code
+        self.book_price=book_price
+        self.book_year=book_year
+        self.book_author=book_author
+    def __str__(self):
+        return str.format("Name {} code {} price {} year {} author{} ",self.book_name, self.book_code , self.book_price, self.book_year,self.book_author)
+        
+
+books=[Book("Lord",2034,5.64,1995,"George"),Book("Ford",1034,8.64,2000,"Seorge"),Book("Psichologi",3034,15.64,1998,"Aristotel"),Book("The Quinn",5034,55.64,2020,"Jack")]
+
+def sort_list(list1):
+    sortedList=sorted(list1,key=lambda x: x.book_name ,reverse=True)
+    for i in sortedList:
+        print(i)
+
+sort_list(books)
+print()
+
+def author(list1, authors):
+    for i in list1:
+        if i.book_author==authors:
+            print(i)
+
+author(books,"George")
+
+def search_book(list1,code):
+    for i in list1:
+        if code==i.book_code:
+            return print(i.book_year)
+    return print("The Book not found!")
+
+search_book(books,2035)
+
+
+
+
+# zad1
+
+while True:
+    try:
+        n=int(input("vavedi n "))
+        if n<=0:
+            raise Exception
+        break
+    except Exception:
+        print("Greshno vaveden n ")
+while True:
+    try:
+        k=int(input("vavedi k "))
+        if k<=0:
+            raise Exception
+        break
+    except Exception:
+        print("Greshno vaveden k ")
+l1=[]
+l2=[]
+for i in range(n):
+    c=int(input("Vavedete chislo "))
+    if c>k:
+        l1.append(c)
+    elif c<=k and c>0:
+        l2.append(c)
+ind_min=l1.index(min(l1))
+print(ind_min)
+mul=1
+for i in range(1,len(l1),2):
+    mul=mul*l1[i]
+print(mul)
+raz=max(l2)-min(l2)
+print(raz)
